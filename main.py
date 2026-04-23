@@ -6,6 +6,7 @@ app = FastAPI(title="Cartoonify OOP API")
 
 # Instantiate our processor object
 # If we had a heavy AI model, it would load into memory right here, ONCE.
+
 processor = Cartoonifier(blur_value=5, edge_block_size=9)
 
 @app.post("/cartoonify")
@@ -22,6 +23,6 @@ async def cartoonify_endpoint(file: UploadFile = File(...)):
     except RuntimeError as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.get("/")
+@app.get("/") 
 def health_check():
     return {"status": "Active", "message": "Cartoonify OOP API is running."}

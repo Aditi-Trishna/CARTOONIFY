@@ -29,6 +29,7 @@ class Cartoonifier:
     def process(self, image_bytes: bytes) -> bytes:
         """
         Public method: The main orchestrator for the computer vision pipeline.
+        
         """
         # 1. Decode
         img = self._decode_image(image_bytes)
